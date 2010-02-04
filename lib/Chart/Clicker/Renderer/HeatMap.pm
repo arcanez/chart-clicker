@@ -134,6 +134,7 @@ override('finalize', sub {
             $op->brush->color($color);
             $self->do($op);
 
+=cut
             if(defined($self->shape)) {
                 for(0..$kcount) {
                     my $key = $keys[$_];
@@ -174,6 +175,7 @@ override('finalize', sub {
                     $self->do($op3);
                 }
             }
+=cut
         }
     }
 
