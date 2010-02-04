@@ -12,10 +12,10 @@ use List::Util qw(min max);
 has 'color_stops' => (
     is => 'rw',
     isa => 'ArrayRef[Graphics::Color::RGB]',
-    default => [
+    default => sub { [
         Graphics::Color::RGB->new(red => 0, green => 1, blue => 0),
         Graphics::Color::RGB->new(red => 1, green => 0, blue => 0)
-    ]
+    ] }
 );
 
 has 'gradient' => (
