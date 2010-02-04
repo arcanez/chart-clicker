@@ -46,6 +46,12 @@ has 'range' => (
     }
 );
 
+has 'brush' => (
+    is => 'rw',
+    isa => 'Graphics::Primitive::Brush',
+    default => sub { Graphics::Primitive::Brush->new }
+);
+
 sub _build_gradient {
     my ($self) = @_;
 }
