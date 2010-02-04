@@ -70,14 +70,15 @@ override('prepare', sub {
     my @max = ();
     my $dses = $clicker->get_datasets_for_context($self->context);
     die 'HeatMap may only have one dataset!' unless scalar(@{ $dses }) == 1;
+    #die 'HeatMap may only have one series!' unless scalar(@{ $dses[0]->series }) == 1;
 
-    die 'HeatMap may only have one series!' unless scalar(@{ $dses[0]->series }) == 1;
+    my $series = @$dses[0]->series;
 
-    $self->max_size($series->get_max_size);
-    $self->min_size($series->get_min_size);
+    $self->max_size(@$series[0]->get_max_size);
+    $self->min_size(@$series[0]->get_min_size);
 });
 
-override('finalize', {
+override('finalize', sub {
     my ($self) = @_;
 
     my $width = $self->width;
